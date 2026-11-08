@@ -3,10 +3,105 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalonDock="https://github.com/Dirkster99/AvalonDock"
+        xmlns:themes="clr-namespace:AvalonDock.Themes;assembly=AvalonDock.Themes.Arc"
         xmlns:local="clr-namespace:webDMX.followspotAI"
         mc:Ignorable="d"
-        Title="webDMX followspot AI" Height="450" Width="800" ResizeMode="CanResizeWithGrip" WindowState="Maximized" Icon="/webDMX.png">
-    <Grid>
+        Title="webDMX followspot AI"
+        Icon="/webDMX.png"
+        Height="450"
+        Width="800"
+        WindowState="Maximized">
+    
+    <avalonDock:DockingManager>
+        <!-- Theme -->
+        <avalonDock:DockingManager.Theme>
+            <themes:ArcLightTheme />
+        </avalonDock:DockingManager.Theme>
 
-    </Grid>
+        <!-- Layout -->
+        <avalonDock:LayoutRoot>
+            <avalonDock:LayoutPanel Orientation="Horizontal">
+
+                <!-- Left: control window -->
+                <avalonDock:LayoutAnchorablePane DockWidth="300">
+                    <avalonDock:LayoutAnchorable Title="Control"
+                                                 ContentId="control"
+                                                 CanClose="False">
+                        <StackPanel Margin="8">
+                            <TextBlock Text="Control"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,8" />
+                            <TextBlock Text="AI tracking:" />
+                            <CheckBox />
+                            <TextBlock Text="Moving light:" />
+                            <TextBlock Text="Pan:" />
+                            <TextBox Margin="0,2,0,8" Text="0" />
+                            <Slider Maximum="255" />
+                            <TextBlock Text="Tilt:" />
+                            <TextBox Margin="0,2,0,8" Text="0" />
+                            <Slider Maximum="255" />
+                        </StackPanel>
+                    </avalonDock:LayoutAnchorable>
+                </avalonDock:LayoutAnchorablePane>
+
+                <!-- Center: camera -->
+                <avalonDock:LayoutDocumentPane>
+                    <avalonDock:LayoutDocument Title="Camera"
+                                               ContentId="camera">
+                        <TextBlock Text="Welcome to webDMX followspot AI!"
+                                FontSize="24"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                    </avalonDock:LayoutDocument>
+                </avalonDock:LayoutDocumentPane>
+
+                <!-- Right: Properties -->
+                <avalonDock:LayoutAnchorablePane DockWidth="300">
+                    <avalonDock:LayoutAnchorable Title="Properties"
+                                                ContentId="properties"
+                                                CanClose="False">
+                        <StackPanel Margin="8">
+                            <TextBlock Text="Properties"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,8" />
+                            <TextBlock Text="Video source:" />
+                            <ComboBox />
+                            <TextBlock Text="Resolution:" />
+                            <ComboBox SelectedIndex="0" >
+                                <MenuItem Header="8 bit" />
+                                <MenuItem Header="16 bit" />
+                            </ComboBox>
+                            <TextBlock Text="Pan min:" />
+                            <TextBox Margin="0,2,0,8" Text="0" />
+                            <TextBlock Text="Pan max:" />
+                            <TextBox Margin="0,2,0,8" Text="255" />
+                            <TextBlock Text="Tilt min:" />
+                            <TextBox Margin="0,2,0,8" Text="0" />
+                            <TextBlock Text="Tilt max:" />
+                            <TextBox Margin="0,2,0,8" Text="255" />
+                        </StackPanel>
+                    </avalonDock:LayoutAnchorable>
+                </avalonDock:LayoutAnchorablePane>
+
+            </avalonDock:LayoutPanel>
+
+            <!-- Bottom: Output Panel (auto-hidden) -->
+            <avalonDock:LayoutRoot.BottomSide>
+                <avalonDock:LayoutAnchorSide>
+                    <avalonDock:LayoutAnchorGroup>
+                        <avalonDock:LayoutAnchorable Title="Logging"
+                                                     ContentId="logging">
+                            <TextBox AcceptsReturn="True"
+                                     IsReadOnly="True"
+                                     FontFamily="Consolas"
+                                     Text="webDMX followspot AI started." />
+                        </avalonDock:LayoutAnchorable>
+                    </avalonDock:LayoutAnchorGroup>
+                </avalonDock:LayoutAnchorSide>
+            </avalonDock:LayoutRoot.BottomSide>
+            
+        </avalonDock:LayoutRoot>
+    </avalonDock:DockingManager>
+    
 </Window>
