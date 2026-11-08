@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <RootNamespace>webDMX.followspotAI</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <StartupObject>webDMX.followspotAI.App</StartupObject>
+    <AssemblyTitle>webDMX followspot AI</AssemblyTitle>
+    <ApplicationIcon>webDMX.ico</ApplicationIcon>
+    <PlatformTarget>x64</PlatformTarget>
+    <Title>webDMX followspot AI</Title>
+    <Authors>webDMX community</Authors>
+    <Company>webDMX</Company>
+    <Description>Tool for using moving lights as intelligent followspots with camera-based, AI-powered person tracking.</Description>
+    <PackageProjectUrl>https://webdmx.com</PackageProjectUrl>
+    <Copyright>webDMX</Copyright>
+    <PackageIcon></PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/webDMX/followspot-AI</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <FileVersion>0.1.0</FileVersion>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="webDMX.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="webDMX.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="webDMX.png" />
+  </ItemGroup>
+
+</Project>
